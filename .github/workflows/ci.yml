@@ -1,26 +1,26 @@
 name: gradle test
 
-on: 
-  push:
-    branches: [ master]
+on:
+  push: 
+    branches: ["master"]
   pull_request:
-    branches: [ master]
+    branches: ["master"]
+
 
 jobs:
   build-java:
 
     runs-on: ubuntu-latest
-   
-    steps:
 
+    steps:
     - uses: actions/checkout@v2
 
-    - name: install java
-      uses: actions/setup-java@v1
+    - name: setup java
+      uses: actions/setup-java@v2
       with:
         java-version: 1.8
 
-    - name: gradle permissions
+    - name: permissions for gradle
       run: chmod +x gradlew
 
     - name: build gradle
